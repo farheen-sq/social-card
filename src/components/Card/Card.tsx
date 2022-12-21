@@ -1,9 +1,13 @@
 import React from 'react'
+import userType from '../../interfaces/userInterface';
+import './Card.css';
 
-const Card = ({user}) => {
+const Card = ({user}: userType): JSX.Element => {
+    
     return (
         <div className="card">
-            <img className="img" src={user.avatar_url} alt="some text"/>
+            {user && <div>
+            <img className="img" src={user.avatar_url} alt="avatar image"/>
             {user.login && (
                 <p>Username: {user.login}</p>
             )}
@@ -26,7 +30,7 @@ const Card = ({user}) => {
                 <a title='' href={user.html_url}>Link to github</a>
             ) : (null
             )}
-            {user.blog.length ? (
+            {user.blog && user.blog.length ? (
                 <p>Blog: {user.blog}</p>
             ) : (null
             )}
@@ -34,6 +38,8 @@ const Card = ({user}) => {
                 <p>Email: {user.email}</p>
             ) : (null
             )}
+            </div>
+            }   
         </div>
     );
 }
