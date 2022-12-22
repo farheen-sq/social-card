@@ -5,9 +5,13 @@ import useGetUser from '../hooks/useGetUser'
 import responseType from '../interfaces/userresponse'
 import { API_URL, USERS_ENDPOINT } from '../constants';
 
-export default function Profile(props:{username: string}): JSX.Element {
+interface propTypes {
+    username?: string;
+}
+
+export default function Profile(props:propTypes): JSX.Element {
     let { username } = useParams()
-    if (!username){
+    if (!username && props){
         username = props.username
     }
     const {user, error} :responseType = useGetUser(`${API_URL}${USERS_ENDPOINT}/${username}`)

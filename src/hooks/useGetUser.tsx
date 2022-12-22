@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import userType from "../interfaces/userInterface";
 import responseType from "../interfaces/userresponse";
+import { GITHUB_TOKEN } from "../constants";
 
 const useGetUser = (url: string): responseType => {
     const [user, setuser] = useState<userType|null>(null);
     const [error, seterror] = useState<string|null>(null);
+    console.log("GITHUB_TOKEN----   ", GITHUB_TOKEN)
     const config = {
         headers:{
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer " + GITHUB_TOKEN,
             "Accept": "application/vnd.github+json"
         }
     };

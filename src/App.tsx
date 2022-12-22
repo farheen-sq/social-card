@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router"
 import Search from './pages/search';
 import Home from './pages/home';
 import Profile from './pages/profile';
+import React from 'react';
 
 function App() {
   return (
